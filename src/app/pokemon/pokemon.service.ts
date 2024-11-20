@@ -11,6 +11,10 @@ export class PokemonService {
 
   constructor(private http : HttpClient) { }
 
+  pokemons : PokemonDetailDto[] = this.getPokemons();
+  selectedPokemon!: PokemonDetailDto;
+  selected: boolean = false;
+
   getPokemons(): PokemonDetailDto[] {
     let pokemons : PokemonDetailDto[] = [];
     for (let i = 1; i <= 20; i++) {
@@ -23,6 +27,11 @@ export class PokemonService {
 
   getPokemon(id : string): Observable<PokemonDetailDto> {
     return this.http.get<PokemonDetailDto>(`${this.apiUrl}${id}`);
+  }
+
+  Onselect(pokemon : PokemonDetailDto) {
+    this.selectedPokemon = pokemon;
+    this.selected = true;
   }
 
 }

@@ -1,0 +1,14 @@
+<p>
+  pokemon-list works!
+</p>
+
+<div class="card-deck"></div>
+  <div class="card" *ngFor="let pokemon of pokemons">
+    <img class="card-img-top" [src]="" alt="Card image cap">
+    <div class="card-body">
+      <h5 class="card-title" (click)="onselect(pokemon)">{{pokemon.name}}</h5>
+    </div>
+  </div>  
+<!--
+<app-pokemon-detail [pokemon]="selectedPokemon"></app-pokemon-detail>
+-->
